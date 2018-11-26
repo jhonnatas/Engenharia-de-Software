@@ -3,7 +3,7 @@ Repositório criado para a disciplina de Engenharia de Software do Mestrado Prof
 
 Integrantes da Equipe:
 
-Jhonnatas Alencar           - jjasa@cin.ufpe.br
-Márcio P. Gonçalves         - mpg3@cin.ufpe.br
-Paulo José T. dos Santos    - pjts@cin.ufpe.br
-Isaac Brígido R. dos Santos - ibrs@cin.ufpe.br
+Jhonnatas Alencar <br />          - jjasa@cin.ufpe.br
+Márcio P. Gonçalves  <br />       - mpg3@cin.ufpe.br
+Paulo José T. dos Santos  <br />  - pjts@cin.ufpe.br
+Isaac Brígido R. dos Santos <br />- ibrs@cin.ufpe.br
