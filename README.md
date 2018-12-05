@@ -1,6 +1,9 @@
 # Engenharia-de-Software
 Repositório criado para a disciplina de Engenharia de Software do Mestrado Profissional - UFPE
 
+Professor: Vinicius Cardoso Garcia
+Lattes:http://lattes.cnpq.br/6613487636748832
+
 Integrantes da Equipe:
 
 Jhonnatas Alencar - jjasa@cin.ufpe.br <br />
