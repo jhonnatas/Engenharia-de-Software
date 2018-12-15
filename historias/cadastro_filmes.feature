@@ -1,0 +1,33 @@
+#language: pt
+
+@gerenciarFilmes
+Funcionalidade: gerenciar os Filmes
+    como usuario administrador do sistema da locadora
+    eu quero poder cadastrar e listar filmes 
+    para que poderem ser locados
+
+Contexto:
+    Dado que existe o filme "O senhor dos anéis: A sociedade do anel"
+
+Cenário: Cadastrar novo filme
+    Dado que eu esteja na pagina de administração de filmes
+    E eu clico em "novo filme" deve abrir o formulário de cadastro
+    E preencho "Titulo Original" com "The Lord of Rings: The two towers"
+    E preencho "Tiutlo_portugues" com "O senhor dos anéis: As duas torres"
+    E preencho "Pais" com "Estados Unidos"
+    E preencho "Elenco" com "Elijah Wood, Ian McKellen"
+    E preencho "sinopse" com "o cara ta na metade do caminho pra queimar o anel"
+    E preencho "duracao" com "3H 55m"
+    E preencho "genero" com "aventura, ficção"
+    E preencho "midia" com "DVD"
+    E preencho "status" com "Lançamento"
+    Quando eu clico em "salvar"
+    Então eu devo ver "filme cadastrado com sucesso"
+
+Cenário: Pesquisar Filmes
+    E "O senhor dos anéis: As duas torres"
+    E que eu esteja na pagina de consulta de filmes
+    E eu preencho "pesquisar" com "O senhor"
+    Quando clico em "pesquisar"
+    Então eu devo ver "O senhor dos aníes: A sociedade do anel"
+    E "O senhor dos anéis: As duas torres"
