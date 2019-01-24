@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Distribuitors</h1>
+<h1>Distribuitores</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Rsocial</th>
+      <th>Razão Social</th>
       <th>Cnpj</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Neighborhood</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-      <th>Complement</th>
-      <th>Contact</th>
+      <th>Telefone</th>
+      <th>Endereço</th>
+      <th>Bairro</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>CEP</th>
+      <th>Complemento</th>
+      <th>Contacto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,9 +32,9 @@
         <td><%= distribuitor.zipcode %></td>
         <td><%= distribuitor.complement %></td>
         <td><%= distribuitor.contact %></td>
-        <td><%= link_to 'Show', distribuitor %></td>
-        <td><%= link_to 'Edit', edit_distribuitor_path(distribuitor) %></td>
-        <td><%= link_to 'Destroy', distribuitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', distribuitor %></td>
+        <td><%= link_to 'Editar', edit_distribuitor_path(distribuitor) %></td>
+        <td><%= link_to 'Excluir', distribuitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Distribuitor', new_distribuitor_path %>
+<%= link_to 'Cadastrar Distribuidor', new_distribuitor_path %>
