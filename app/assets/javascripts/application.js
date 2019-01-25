@@ -19,3 +19,6 @@
 //= require jquery.mask
 //= require_tree .
 
+$(document).ready(function(){
+$('#distribuitor_phone').mask('(000) 000-0000');
+}

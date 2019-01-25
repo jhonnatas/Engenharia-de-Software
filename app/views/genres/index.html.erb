@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Gênero dos Filmes</h3>
+
+
+
+  <div id="generos_div">
+    <%= render 'genres' %>
+  </div><!--renders genres partial -->
+
+<%= link_to 'Cadastrar Gênero', new_genre_path, class: "btn btn-outline-primary" %>
