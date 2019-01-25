@@ -42,6 +42,9 @@ gem 'jquery_mask_rails'
 #For layout
 gem 'bootstrap'
 
+#For Login
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

@@ -10,9 +10,18 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class="container">
-      <%= yield %>
-    </div>
+    
+    <% if admin_signed_in? %>
+      <%= render 'layouts/navbar' %>
+      
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    <% else %>
+      <%= render template: 'devise/sessions/new' %>
+    <% end %>
+
   </body>
 </html>
