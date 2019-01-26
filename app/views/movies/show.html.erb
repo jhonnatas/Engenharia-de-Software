@@ -1,17 +1,19 @@
-<p>
-  <strong>Gênero: </strong>
-  <%= @movie.genre.name %>
-</p>
 
+<h3><%= @movie.title %></h3>
 
-<p>
-  <strong>Título:</strong>
-  <%= @movie.title %>
-</p>
 
 <p>
   <strong>Título em Português:</strong>
   <%= @movie.title_br %>
+</p>
+
+<p>
+  <%= image_tag(@movie.img) %> <!--to show image-->
+</p>
+
+<p>
+  <strong>Gênero: </strong>
+  <%= @movie.genre.name %>
 </p>
 
 <p>
@@ -37,11 +39,6 @@
 <p>
   <strong>Duração:</strong>
   <%= @movie.duration %>
-</p>
-
-<p>
-  <strong>Img:</strong>
-  <%= @movie.img %>
 </p>
 
 <p>

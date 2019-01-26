@@ -1,9 +1,9 @@
  <!-- Table -->
-  <table class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+  <table class="table table-striped table-responsive" cellspacing="0" width="100%">
   <tr>
-    <th width="20%">Título</th>
-    <th>Título Português</th>
-    <th>Imagem</th>
+    <th></th>
+    <th>Título</th>
+    <th>Título em Português</th>
     <th>Ano</th>
     <th>Duração</th>
     <th></th>
@@ -13,9 +13,9 @@
 
   <% @movies.each do |movie| %>
     <tr>
+      <td><%= image_tag(movie.img, width: 100, height: 150) %></td> <!--to show image-->
       <td width="20%"><%= truncate(movie.title, length: 100) %></td>
       <td width="20%"><%= truncate(movie.title_br, length: 100) %></td>
-      <td><%= movie.img %></td>
       <td><%= movie.year %></td>
       <td><%= movie.duration %></td>
       <td><%= link_to movie, class: "btn btn-success btn-mini" do %><!--<i class="fa fa-search" aria-hidden="true"></i>--> Detalhes<% end %>
