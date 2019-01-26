@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :movies
   devise_for :admins
 
   #get 'pages/home'

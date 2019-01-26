@@ -1,0 +1,97 @@
+<%= form_with(model: movie, local: true) do |f| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend></legend>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Gênero</label>
+            <div class="col-md-10">
+              <%= collection_select(:movie, :genre_id, Genre.order(:name), :id, :name) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Título</label>
+            <div class="col-md-10">
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Título Português</label>
+            <div class="col-md-10">
+              <%= f.text_field :title_br, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Ano</label>
+            <div class="col-md-10">
+              <%= f.text_field :year, class: 'form-control' %>
+            </div>
+          </div>                  
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Tipo</label>
+            <div class="col-md-10">
+              <%= f.select :tipo, ['Catálogo','Lançamento'], class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Duração</label>
+            <div class="col-md-10">
+              <%= f.text_field :duration, class: 'form-control' %>
+            </div>
+          </div>
+
+            <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">País</label>
+            <div class="col-md-10">
+              <%= f.text_field :country, class: 'form-control' %>
+            </div>
+          </div>  
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Imagem</label>
+            <div class="col-md-10">
+              <%= f.text_field :img, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Elenco</label>
+            <div class="col-md-10">
+              <%= f.text_area :cast, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="marcotipo">Sinopse</label>
+            <div class="col-md-10">
+              <%= f.text_area :synopsis, class: 'form-control' %>
+            </div>
+          </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          </fieldset>            
+        </form>
+    </div><!-- end of row -->
+
+   
+<% end %>

@@ -1,0 +1,53 @@
+<p>
+  <strong>Gênero: </strong>
+  <%= @movie.genre.name %>
+</p>
+
+
+<p>
+  <strong>Título:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>Título em Português:</strong>
+  <%= @movie.title_br %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Cast:</strong>
+  <%= @movie.cast %>
+</p>
+
+<p>
+  <strong>Sinopse:</strong>
+  <%= @movie.synopsis %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @movie.tipo%>
+</p>
+
+<p>
+  <strong>Duração:</strong>
+  <%= @movie.duration %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @movie.img %>
+</p>
+
+<p>
+  <strong>País:</strong>
+  <%= @movie.country %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
