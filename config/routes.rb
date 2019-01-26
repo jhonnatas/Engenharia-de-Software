@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #get 'pages/home'
   get 'admins/index'
   get 'admins/show'
+  
   root to: "pages#home"
 
   #Avoid user access to admin/sign_up directly
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   #Show login as root/first page
   devise_scope :admin do
   	authenticated :admin do
-  		root :to => 'distribuitors#index', as: :authenticated_root
+  		root :to => 'pages#home', as: :authenticated_root
   	end
   	unauthenticated :admin do
   		root :to => 'devise/sessions#new', as: :unauthenticated_root
