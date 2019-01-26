@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+ 
+  devise_for :admins
+
+  #get 'pages/home'
   get 'admins/index'
   get 'admins/show'
-  root to: "distribuitors#index"
-  devise_for :admins
+  root to: "pages#home"
 
   #Avoid user access to admin/sign_up directly
   #devise_for :admins, :controllers => {registrations: 'registrations'}

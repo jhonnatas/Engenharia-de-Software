@@ -11,17 +11,18 @@
 
   <body>
     
-    <% if admin_signed_in? %>
+     <% if admin_signed_in? %>
       <%= render 'layouts/navbar' %>
       
-      <div class="container">
+      <div class="container">        
+        <%= flash_messages %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
-      </div>
+      </div>    
     <% else %>
-      <%= render template: 'devise/sessions/new' %>
-    <% end %>
+     <%= render template: 'admins/sessions/new' %>
+    <% end %>  
 
   </body>
 </html>
