@@ -3,7 +3,7 @@ Dado("que existe o cliente {string} cadastrado") do |nome|
 end
   
   Dado("que eu esteja na pagina de administração de cliente") do
-    
+    teste
   end
   
   Dado("preencho nome com {string}") do |string|
