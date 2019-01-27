@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
 
 	belongs_to :genre
+	has_many :directors
 
 	has_one_attached :img #Active Storage
 

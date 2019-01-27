@@ -46,5 +46,12 @@
   <%= @movie.country %>
 </p>
 
+<p>
+  <strong>Diretor(es):</strong>
+  <% @movie.directors.each do |d| %>
+    <%= d.name %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

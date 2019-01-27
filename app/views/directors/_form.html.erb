@@ -1,0 +1,47 @@
+<%= form_with(model: director, local: true) do |f| %>
+  <% if director.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
+
+      <ul>
+      <% director.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+<div class="row">
+  <form class="form-horizontal">
+    <fieldset>
+      <legend></legend>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="marcotipo">Filme</label>
+          <div class="col-md-10">
+            <%= collection_select(:director, :movie_id, Movie.order(:title), :id, :title) %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="marcotipo">Nome</label>
+          <div class="col-md-10">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="marcotipo">Descrição</label>
+          <div class="col-md-10">
+            <%= f.text_field :description, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+        </fieldset>            
+      </form>
+    </div><!-- end of row -->
+<% end %>  

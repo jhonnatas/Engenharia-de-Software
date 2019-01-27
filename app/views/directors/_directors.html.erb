@@ -1,0 +1,23 @@
+ <!-- Table -->
+  <table class="table table-striped table-responsive" cellspacing="0" width="100%">
+  <tr>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Filme</th>
+    <th></th>
+    <th></th>
+    <th></th>
+   </tr>
+
+  <% @directors.each do |director| %>
+    <tr>
+      <td width="50%"><%= truncate(director.name, length: 100) %></td>
+      <td><%= director.description %></td>
+      <td><%= director.movie.title %></td>
+      <td><%= link_to director, class: "btn btn-success btn-mini" do %><!--<i class="fa fa-search" aria-hidden="true"></i>--> Detalhes<% end %>
+      <td><%= link_to edit_director_path(director), class: "btn btn-warning btn-mini" do %><!--<i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->Editar <% end %>
+      <td><%= link_to director, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-mini"  do %><!--<i class="fa fa-eraser" aria-hidden="true"></i></i>--> Deletar <% end %>      
+    </tr>
+  <% end %>
+</table> <!--end of table -->
+
