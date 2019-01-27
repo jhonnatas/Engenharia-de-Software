@@ -53,7 +53,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'shoulda-matchers', '3.1'
 
 end
 
@@ -73,6 +73,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'faker'
+  gem 'cucumber-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
