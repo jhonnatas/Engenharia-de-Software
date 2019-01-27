@@ -11,30 +11,16 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <form class="form-horizontal">
-      <fieldset>
-        <legend></legend>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Nome</label>
-            <div class="col-md-10">
-              <%= f.text_field :name, class: 'form-control' %>
-            </div>
-          </div>
-
-           <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Descrição</label>
-            <div class="col-md-10">
-              <%= f.text_area :description, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="actions">
-            <%= f.submit %>
-          </div>         
-      </fieldset>    
-    </form>
-
-  </div><!-- end of row -->
+    <div class="col-sm-12 form-group">
+        <%= f.text_field :name, class: 'form-control', placeholder: "Nome"  %>
+    </div>
+    
+    <div class="col-sm-12 form-group">
+        <%= f.text_area :description, class: 'form-control', placeholder: "Descrição"  %>
+    </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit "Enviar",class: "btn btn-primary"%>
+    </div>         
 
 <% end %>
