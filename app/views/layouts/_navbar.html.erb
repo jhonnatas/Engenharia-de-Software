@@ -11,6 +11,9 @@
       <li class="nav-item">
         <%= link_to 'Gerenciar Distribuidoras', distribuitors_path, class: 'nav-link' %>
       </li>
+       <li class="nav-item">
+        <%= link_to 'Gerenciar Clientes', customers_path, class: 'nav-link' %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Acervo
@@ -22,11 +25,6 @@
          <!-- <a class="dropdown-item" href="#">Another action</a>-->          
         </div>
       </li>
-      <% if current_admin %>
-                    <li><%= link_to 'Edit Profile',edit_customer_registration_path %></li>         
-                <% else %>
-                    <li><%= link_to 'Login', new_customer_session_path %></li>
-                <% end %>
       <li class="nav-item">
         <%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
       </li>

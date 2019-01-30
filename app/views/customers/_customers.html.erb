@@ -1,0 +1,29 @@
+ <!-- Table -->
+  <table class="table table-striped table-responsive" cellspacing="0" width="100%">
+  <tr>
+    <th>Ativo</th>
+    <th width="20%">Nome</th>
+    <th>Email</th>
+    <th>Cpf</th>
+    <th>Situação</th>
+    <th>Telefone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+   </tr>
+
+  <% @customers.each do |customer| %>
+    <tr>      
+      <td><% if customer.active == true %><%= 'Sim' %><% else %><%= 'Não'%><% end %></td>
+      <td width="20%"><%= truncate(customer.name, length: 100) %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.cpf %></td>
+      <td><%= customer.status %></td>
+      <td><%= customer.phone %></td>
+      <td><%= link_to customer, class: "btn btn-success btn-mini" do %><!--<i class="fa fa-search" aria-hidden="true"></i>--> Detalhes<% end %>
+      <td><%= link_to edit_customer_path(customer), class: "btn btn-warning btn-mini" do %><!--<i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->Editar <% end %>
+      <td><%= link_to customer, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-mini"  do %><!--<i class="fa fa-eraser" aria-hidden="true"></i></i>--> Deletar <% end %>      
+    </tr>
+  <% end %>
+</table> <!--end of table -->
+

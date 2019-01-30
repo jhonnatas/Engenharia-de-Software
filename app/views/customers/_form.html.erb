@@ -1,0 +1,98 @@
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Ativo %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="col-sm-6 form-group">    
+    <%= form.text_field :name, class: 'form-control', placeholder: 'Nome' %>
+  </div>
+
+   <div class="col-sm-6 form-group">    
+    <%= form.text_field :email, class: 'form-control', placeholder: 'Email' %>
+  </div>
+
+   <div class="col-sm-6 form-group">    
+    <%= form.password_field :password, class: 'form-control', placeholder: 'Senha' %>
+  </div>
+
+   <div class="col-sm-6 form-group">    
+    <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmação da senha' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Status %>
+    <%= form.select :status, ['Adimplente','Inadimplente'], class: 'form-control' %>
+  </div>
+
+  <div class="col-sm-8 form-group">
+    <%= form.label :Data_de_Nascimento %>
+    <%= form.datetime_select :date_of_birth, start_year: 1950, end_year: Date.today.year, class: 'form-control' %>
+  </div>  
+
+  <div class="col-sm-6 form-group">
+    
+    <%= form.text_field :address, class: 'form-control', placeholder: 'Endereço' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :neighborhood, class: 'form-control',placeholder: 'Bairro' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :city, class: 'form-control', placeholder: 'Cidade' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :state, class: 'form-control', placeholder: 'Estado' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :zipcode, class: 'form-control', placeholder: 'Cep', 'data-mask': '00.000.000' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :complement, class: 'form-control', placeholder: 'complemento' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Gênero %>
+    <%= form.select :sgender, ['Masculino','Feminino'], class: 'form-control' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :cpf, class: 'form-control', placeholder: 'CPF', 'data-mask': '000.000.000-00' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :phone, class: 'form-control', 'data-mask': '(00)0000-0000', placeholder: 'Telefone' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :comercial_phone, class: 'form-control', placeholder: 'Telefone Comercial', 'data-mask': '(00)0000-0000' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :cellphone, class: 'form-control', placeholder: 'Celular', 'data-mask': '(00)-00000-0000' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :workplace, class: 'form-control', placeholder: 'Local de trabalho' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
