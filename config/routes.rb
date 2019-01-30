@@ -23,8 +23,6 @@ Rails.application.routes.draw do
   	end
   end
 
-
-
   resources :genres
   resources :distribuitors
   resources :admins, only: [:index, :show]

@@ -1,4 +1,5 @@
 class DistribuitorsController < ApplicationController
+  
   before_action :set_distribuitor, only: [:show, :edit, :update, :destroy]
 
   # GET /distribuitors
