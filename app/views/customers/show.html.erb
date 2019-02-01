@@ -1,0 +1,91 @@
+<p>
+  <strong>Ativo/Inativo:</strong>
+  <%if @customer.active == true %>
+    <%= 'Sim' %>
+  <% else%>
+    <%= 'Não' %>
+  <% end %>  
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @customer.status %>
+</p>
+
+<p>
+  <strong>Data de Nascimento:</strong>
+  <%= l @customer.date_of_birth %>
+</p>
+
+<p>
+  <strong>Gênero:</strong>
+  <%= @customer.sgender %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @customer.cpf %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @customer.neighborhood %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @customer.city %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @customer.state %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @customer.zipcode %>
+</p>
+
+<p>
+  <strong>Complemento:</strong>
+  <%= @customer.complement %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <strong>Telefone Comercial:</strong>
+  <%= @customer.comercial_phone %>
+</p>
+
+<p>
+  <strong>Celular:</strong>
+  <%= @customer.cellphone %>
+</p>
+
+<p>
+  <strong>Local de Trabalho:</strong>
+  <%= @customer.workplace %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :customers
   resources :directors
   resources :movies
   devise_for :admins
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
   		root :to => 'devise/sessions#new', as: :unauthenticated_root
   	end
   end
-
-
 
   resources :genres
   resources :distribuitors
