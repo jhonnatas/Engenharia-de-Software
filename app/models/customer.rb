@@ -1,5 +1,7 @@
 class Customer < ApplicationRecord
 
+	has_many :depends
+
 	validates :name, :cpf, :password, :password_confirmation, :email, :address, :phone, presence: true
 	validates :name, :cpf, :email, uniqueness: true
 

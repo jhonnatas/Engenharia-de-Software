@@ -1,0 +1,29 @@
+ <!-- Table -->
+  <table class="table table-striped table-responsive" cellspacing="0" width="100%">
+  <tr>
+    <th>Ativo</th>
+    <th>Titular</th>
+    <th>Nome do Dependente</th>
+    <th>email</th>
+    <th>Gênero</th>
+    <th>CPF</th>
+    <th></th>
+    <th></th>
+    <th></th>
+   </tr>
+
+  <% @depends.each do |depend| %>
+    <tr>
+      <td><% if depend.active == true %><%= 'Sim'%><% else %><%='Não'%><% end %></td>
+      <td width="20%"><%= truncate(depend.customer.name, length: 100) %></td>
+      <td width="20%"><%= truncate(depend.name, length: 100) %></td>
+      <td><%= depend.email %></td>
+      <td><%= depend.gender %></td>
+      <td><%= depend.cpf %></td>    
+      <td><%= link_to depend, class: "btn btn-success btn-mini" do %><!--<i class="fa fa-search" aria-hidden="true"></i>--> Detalhes<% end %>
+      <td><%= link_to edit_depend_path(depend), class: "btn btn-warning btn-mini" do %><!--<i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->Editar <% end %>
+      <td><%= link_to depend, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-mini"  do %><!--<i class="fa fa-eraser" aria-hidden="true"></i></i>--> Deletar <% end %>      
+    </tr>
+  <% end %>
+</table> <!--end of table -->
+

@@ -1,0 +1,49 @@
+<%= form_with(model: depend, local: true) do |form| %>
+  <% if depend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(depend.errors.count, "error") %> prohibited this depend from being saved:</h2>
+
+      <ul>
+      <% depend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Ativo %>
+    <%= form.check_box :active%>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Titular %>
+    <%= collection_select(:depend, :customer_id, Customer.order(:name), :id, :name) %>
+  </div>
+
+   <div class="col-sm-8 form-group">
+    <%= form.label :Data_de_Nascimento %>
+    <%= form.datetime_select :date_of_birth, start_year: 1950, end_year: Date.today.year, class: 'form-control' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Gênero %>
+    <%= form.select :gender, ['Masculino','Feminino'] %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :name, class:'form-control', placeholder: 'Nome' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :email, class: 'form-control', placeholder: 'Email' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :cpf, placeholder: 'CPF','data-mask': '000.000.000-00'  %>
+  </div> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

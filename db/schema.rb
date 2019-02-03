@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_175137) do
+ActiveRecord::Schema.define(version: 2019_02_03_140451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,19 @@ ActiveRecord::Schema.define(version: 2019_01_30_175137) do
     t.string "password_confirmation"
   end
 
+  create_table "depends", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "gender"
+    t.string "cpf"
+    t.datetime "date_of_birth"
+    t.boolean "active"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_depends_on_customer_id"
+  end
+
   create_table "directors", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -120,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_175137) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "depends", "customers"
   add_foreign_key "directors", "movies"
   add_foreign_key "movies", "genres"
 end

@@ -1,0 +1,43 @@
+<p>
+  <strong>Ativo:</strong>
+  <% if @depend.active == true %>
+    <%= 'Sim' %>
+  <% else %>
+    <%= 'Não' %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Titular:</strong>
+  <%= @depend.customer.name %>
+</p>
+
+
+<p>
+  <strong>Nome do Dependente:</strong>
+  <%= @depend.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @depend.email %>
+</p>
+
+<p>
+  <strong>Gênero:</strong>
+  <%= @depend.gender %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @depend.cpf %>
+</p>
+
+<p>
+  <strong>Data de nascimento:</strong>
+  <%= l @depend.date_of_birth %>
+</p>
+
+
+<%= link_to 'Edit', edit_depend_path(@depend) %> |
+<%= link_to 'Back', depends_path %>

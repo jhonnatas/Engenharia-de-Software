@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :depends
   resources :customers
   resources :directors
   resources :movies
