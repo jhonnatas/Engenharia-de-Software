@@ -33,7 +33,7 @@
             <% end %>
 
             <div>
-             <%= button_to 'Entrar', new_admin_session_path, method: :get, class: :'btn btn-primary btn-lg' %>
+             <%= f.submit "Entrar" %>
             </div>  
       <% end %>
         <%= render "devise/shared/links" %>

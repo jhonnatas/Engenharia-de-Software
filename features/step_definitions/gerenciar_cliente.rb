@@ -1,103 +1,132 @@
-Dado("que existe o cliente {string} cadastrado") do |nome|
-@cliente = nome
+def create_admin
+  @registered_admin = FactoryBot.create(:admin, 
+                                        email: 'admin@mail.test', 
+                                        password: 'pa$$word',
+                                        password_confirmation: 'pa$$word')
 end
+
+def sign_in
+  visit root_path
+  fill_in 'admin_email', with: 'admin@mail.test'
+  fill_in 'admin_password', with: 'pa$$word'
+  click_button 'Entrar'
   
-  Dado("que eu esteja na pagina de administração de cliente") do
-    teste
-  end
+end
+
+Dado("que eu seja um administrador registrado") do
+  create_admin
+end
+
+Dado("esteja logado como administrador") do
+  sign_in
+  expect(page).to have_content('Login efetuado com sucesso!')
+end
+
+
+Dado("que eu tenho varios clientes cadastrados") do
+        
+        5.times do |v| 
+          FactoryBot.create(:customer, name: "#{v } - nome", cpf: "#{v } - CPF")  
+        end
+
+        
+end
+
+Quando("eu visito a pagina de gerenciamento dos clientes") do
+ 
+  visit customers_path
+  expect(page).to have_content('1 - CPF MyString MyString ')
+end
+
+Então("eu devo ver uma lista de Clientes") do
+        expect(page).to have_content("1 - nome")
+        expect(page).to have_content("2 - nome")
+end
+
+Dado("que eu estou na pagina de administração dos clientes") do
+  #@registered_admin
+  visit customers_path
+  expect(page).to have_content("Gerenciar Clientes")
+end
+
+Dado("clico no link de Cadastrar Cliente") do
+  click_on 'Cadastrar Cliente'
+end
+
+Dado("eu preencho o Nome com {string}") do |string|
+  fill_in 'customer_name', with: string
+end
+
+#Dado("eu preencho email com {string}") do |string|
+  #fill_in 'customer_email', with: string
+#end
+
+Dado("eu preencho endereço com {string}") do |string|
+  fill_in 'customer_address', with: string
+end
+
+Dado("eu preencho telefone_fixo com {string}") do |string|
+  fill_in 'customer_phone', with: string
+end
+
+Dado("eu preencho local_trabalho com {string}") do |string|
+  fill_in 'customer_workplace', with: string
+end
+
+Dado("eu preencho telefone_comercial com {string}") do |string|
+  fill_in 'customer_comercial_phone', with: string
+end
+
+Dado("eu preencho celular com {string}") do |string|
+  fill_in 'customer_cellphone', with: string
+end
+
+Dado("eu preencho sexo com {string}") do |string|
+ select( string, from: 'customer_sgender')
+end
+
+Dado("eu preencho CPF com {string}") do |string|
+  fill_in 'customer_cpf', with: string
+end
+
+#Dado("eu preencho data_nascimento  com {string}") do |string|
+ # fill_in 'customer_date_of_birth', with: string
+#end
+
+Quando("salvar") do
+  click_on 'Criar Customer'
+end
+
+Então("eu devo ver Cliente Criado") do 
+  expect(page).to have_content("Customer was successfully created")
+end
+
+Dado("que eu esteja na pagina de gerenciar clientes") do
+  @customer = FactoryBot.create(:customer, name: "Zé ninguem", cpf: "123.456.789-01", active: true)  
+  visit customers_path
   
-  Dado("preencho nome com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Quando("listar clientes") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Então("eu devo ver {string} encontrado") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu clico em novo cliente deve abrir o formulario de cadastro") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho Nome com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho email com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho endereço com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho telefone_fixo com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho local_trabalho com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho telefone_comercial com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho celular com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho sexo com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho CPF com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho data_nascimento  com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Quando("salvar") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Então("eu devo ver {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu clico em novo cliente deve abrir o formulario de cadastro dependente") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu preencho Clinete_titular com {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Quando("o sistema confirmar que o dependente é maior de idade") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("que eu esteja na pagina de administração do cliente") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("seleciono o Cliente {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Quando("eu clico em {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("o Cliente {string} esteja desativado") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Dado("eu seleciono o Cliente {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+end
+
+Dado("o Cliente {string} esteja ativado") do |string|
+  expect(page).to have_content('Zé ninguem')
+  expect(page).to have_content('Sim')
+end
+
+Dado("eu clico em editar o Cliente {string}") do |string|
+ visit edit_customer_path(@customer)
+ 
+end
+
+Quando("eu clico em {string} e depois em Editar Customer") do |string|
+  uncheck('customer_active')
+  click_on 'Atualizar Customer'
+end
+
+Então("eu devo ver Cliente Atualizado") do
+  expect(page).to have_content('Customer was successfully updated')
+
+end
+
+Então("eu devo ver {string}") do |string|
+  expect(page).to have_content(string)
+end

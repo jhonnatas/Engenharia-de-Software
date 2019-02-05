@@ -13,7 +13,11 @@
 
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= image_tag(movie.img, width: 100, height: 150) %></td> <!--to show image-->
+      <td>
+      <% if movie.img? %>
+      <%= image_tag(movie.img, width: 100, height: 150) %>
+      <% end %>
+      </td> <!--to show image-->
       <td width="20%"><%= truncate(movie.title, length: 100) %></td>
       <td width="20%"><%= truncate(movie.title_br, length: 100) %></td>
       <td><%= movie.year %></td>

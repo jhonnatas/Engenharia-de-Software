@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'support/controller_helpers'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -30,8 +31,13 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+require "support/controller_helpers"
 RSpec.configure do |config|
 
+  
+  #config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Warden::Test::Helpers
+  #config.include ControllerHelpers, :type => :controller
   #FactoryBot
   
   config.include FactoryBot::Syntax::Methods
@@ -41,7 +47,21 @@ RSpec.configure do |config|
     config.integrate do |with|
       # Choose a test framework:
       with.test_framework :rspec
+      with.library :active_record
+      with.library :active_model
+      with.library :action_controller
       with.library :rails
+    end
+  end
+  
+  #DataCleaner
+  config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+    config.around(:each) do |example|
+      DatabaseCleaner.cleaning do
+      example.run
     end
   end
 

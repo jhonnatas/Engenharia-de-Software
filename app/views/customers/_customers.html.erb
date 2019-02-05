@@ -3,7 +3,6 @@
   <tr>
     <th>Ativo</th>
     <th width="20%">Nome</th>
-    <th>Email</th>
     <th>Cpf</th>
     <th>Situação</th>
     <th>Telefone</th>
@@ -16,7 +15,6 @@
     <tr>      
       <td><% if customer.active == true %><%= 'Sim' %><% else %><%= 'Não'%><% end %></td>
       <td width="20%"><%= truncate(customer.name, length: 100) %></td>
-      <td><%= customer.email %></td>
       <td><%= customer.cpf %></td>
       <td><%= customer.status %></td>
       <td><%= customer.phone %></td>
