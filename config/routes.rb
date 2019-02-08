@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  resources :items
+  resources :media
   resources :depends
   resources :customers
   resources :directors

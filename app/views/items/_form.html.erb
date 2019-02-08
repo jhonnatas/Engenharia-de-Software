@@ -1,0 +1,41 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Distribuidor %>
+    <%= collection_select(:item, :distribuitor_id, Distribuitor.order(:rsocial), :id, :rsocial ,class: 'form-control') %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Mídia %>
+    <%= collection_select(:item, :medium_id, Medium.order(:name), :id, :name, class: 'form-control') %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :Filme %>
+    <%= collection_select(:item, :movie_id, Movie.order(:title), :id, :title, class: 'form-control') %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.label :aquisiton_date %>
+    <%= form.datetime_select :aquisiton_date, class: 'form-control' %>
+  </div>
+
+  <div class="col-sm-6 form-group">
+    <%= form.text_field :serial, class: 'form-control', pĺaceholder: 'serial' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
