@@ -10,88 +10,51 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :rsocial, class: 'form-control', placeholder: 'Razão Social' %>
+  </div>          
 
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :cnpj, class: 'form-control','data-mask': '00.000.000/0000-00', placeholder:'CNPJ' %>
+  </div>
 
-  <div class="row">
-    <form class="form-horizontal">
-      <fieldset>
-        <legend></legend>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :phone, class: 'form-control', 'data-mask': '(00)0000.0000' %>
+  </div>
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Razão Social</label>
-            <div class="col-md-10">
-              <%= f.text_field :rsocial, class: 'form-control' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :address, class: 'form-control', placeholder: 'Endereço' %>            
+  </div>
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">CNPJ</label>
-            <div class="col-md-10">
-              <%= f.text_field :cnpj, class: 'form-control','data-mask': '00.000.000/0000-00' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :neighborhood, class: 'form-control', placeholder: 'Bairro' %>
+  </div>         
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Telefone</label>
-            <div class="col-md-10">
-              <%= f.text_field :phone, class: 'form-control', 'data-mask': '(00)0000.0000' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :city, class: 'form-control', placeholder: 'Cidade' %>
+  </div>         
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Endereço</label>
-            <div class="col-md-10">
-              <%= f.text_field :address, class: 'form-control' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :state, class: 'form-control', placeholder: 'Estado' %>
+  </div>          
 
-           <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Bairro</label>
-            <div class="col-md-10">
-              <%= f.text_field :neighborhood, class: 'form-control' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :zipcode, class: 'form-control', 'data-mask': '00.000.000' ,placeholder: 'CEP' %>
+  </div>        
 
-           <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Cidade</label>
-            <div class="col-md-10">
-              <%= f.text_field :city, class: 'form-control' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :complement, class: 'form-control', placeholder: 'Complemento' %>
+  </div>        
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Estado</label>
-            <div class="col-md-10">
-              <%= f.text_field :state, class: 'form-control' %>
-            </div>
-          </div>
+  <div class="col-sm-6 form-group"">
+    <%= f.text_field :contact, class: 'form-control', placeholder: 'Contato' %>
+  </div>
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">CEP</label>
-            <div class="col-md-10">
-              <%= f.text_field :zipcode, class: 'form-control', 'data-mask': '00.000.000' %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Complemento</label>
-            <div class="col-md-10">
-              <%= f.text_field :complement, class: 'form-control' %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="marcotipo">Contato</label>
-            <div class="col-md-10">
-              <%= f.text_field :contact, class: 'form-control' %>
-            </div>
-          </div>
-            <div class="actions">
-              <%= f.submit %>
-            </div>
-          </fieldset>            
-        </form>
-    </div><!-- end of row -->
-
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+                    
+</form>
    
 <% end %>

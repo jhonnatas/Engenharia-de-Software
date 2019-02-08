@@ -1,0 +1,27 @@
+<p>
+  <strong>Distribuidor:</strong>
+  <%= @item.distribuitor.rsocial %>
+</p>
+
+<p>
+  <strong>Mídia:</strong>
+  <%= @item.medium.name %>
+</p>
+
+<p>
+  <strong>Filme:</strong>
+  <%= @item.movie.title%>
+</p>
+
+<p>
+  <strong>Data de Aquisição:</strong>
+  <%= l @item.aquisiton_date %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @item.serial %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

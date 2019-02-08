@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_215522) do
+ActiveRecord::Schema.define(version: 2019_02_07_012744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,19 @@ ActiveRecord::Schema.define(version: 2019_02_06_215522) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.datetime "aquisiton_date"
+    t.string "serial"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "distribuitor_id"
+    t.bigint "movie_id"
+    t.bigint "medium_id"
+    t.index ["distribuitor_id"], name: "index_items_on_distribuitor_id"
+    t.index ["medium_id"], name: "index_items_on_medium_id"
+    t.index ["movie_id"], name: "index_items_on_movie_id"
+  end
+
   create_table "media", force: :cascade do |t|
     t.string "name"
     t.decimal "value", precision: 5, scale: 2
@@ -142,5 +155,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_215522) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "depends", "customers"
   add_foreign_key "directors", "movies"
+  add_foreign_key "items", "distribuitors"
+  add_foreign_key "items", "media"
+  add_foreign_key "items", "movies"
   add_foreign_key "movies", "genres"
 end
